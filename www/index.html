@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#05050a">
+  <title>SYSTEM: AWAKENED</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #151536 0%, #070711 45%, #020205 100%);
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .app {
+      max-width: 700px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    .boot {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .panel {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(0,220,255,.2);
+      border-radius: 22px;
+      padding: 24px;
+      margin: 16px 0;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 0 30px rgba(0,200,255,.08);
+    }
+
+    h1 {
+      font-size: 34px;
+      letter-spacing: 3px;
+      margin-bottom: 8px;
+    }
+
+    .cyan {
+      color: #00eaff;
+    }
+
+    .xp {
+      height: 10px;
+      border-radius: 20px;
+      background: #171722;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .xp div {
+      height: 100%;
+      width: 35%;
+      background: linear-gradient(90deg,#00eaff,#8a5cff);
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 10px;
+      border: 0;
+      border-radius: 14px;
+      color: white;
+      background: linear-gradient(135deg,#087bff,#7b3cff);
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      margin: 13px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="boot" id="boot">
+  <div>
+    <div class="cyan">[ SYSTEM BOOTING... ]</div>
+    <h1>SYSTEM: AWAKENED</h1>
+    <p id="status">Initializing player database...</p>
+  </div>
+</div>
+
+<div class="app" id="app" style="display:none">
+
+  <div class="panel">
+    <div class="cyan">PLAYER</div>
+    <h1>AWAKENED</h1>
+    <p>RANK E • LEVEL 1</p>
+
+    <div class="xp">
+      <div></div>
+    </div>
+
+    <small>35 / 100 XP</small>
+  </div>
+
+  <div class="panel">
+    <div class="cyan">TODAY'S QUESTS</div>
+
+    <div class="stat">
+      <span>Study Session</span>
+      <span>+25 XP</span>
+    </div>
+
+    <div class="stat">
+      <span>Workout</span>
+      <span>+20 XP</span>
+    </div>
+
+    <button onclick="completeQuest()">
+      COMPLETE QUEST
+    </button>
+  </div>
+
+  <div class="panel">
+    <div class="cyan">SYSTEM MESSAGE</div>
+    <p id="message">
+      Today's actions determine tomorrow's level.
+    </p>
+  </div>
+
+</div>
+
+<script>
+  setTimeout(() => {
+    document.getElementById("status").textContent =
+      "[ SYSTEM ONLINE ]";
+  }, 1200);
+
+  setTimeout(() => {
+    document.getElementById("boot").style.display = "none";
+    document.getElementById("app").style.display = "block";
+  }, 2200);
+
+  function completeQuest() {
+    document.getElementById("message").textContent =
+      "[ QUEST COMPLETE ] +25 XP";
+  }
+</script>
+
+</body>
+</html>
